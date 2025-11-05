@@ -28,7 +28,7 @@ export function AppHeader() {
                 計分版
               </NavigationMenuTrigger>
               <NavigationMenuContent>
-                <ul className="grid gap-2 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
+                <ul className="grid gap-2 w-[200px] md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
                   <li className="row-span-2">
                     <NavigationMenuLink asChild>
                       <Link
