@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { FunctionCard } from "@/components/app/functionCard";
 
@@ -16,9 +17,13 @@ export default function Home() {
               讓您輕鬆記錄比賽過程中的每一個精彩瞬間！
             </p>
             <div className="w-full sm:w-auto">
-              <Button className="w-full cursor-pointer rounded-2xl px-6 py-6 text-base sm:w-auto sm:text-lg">
-                開始使用
-              </Button>
+              <Link href="/scoreboard">
+                <Button
+                  className={`w-full cursor-pointer rounded-2xl px-6 py-6 text-base sm:w-auto sm:text-lg`}
+                >
+                  開始使用
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
