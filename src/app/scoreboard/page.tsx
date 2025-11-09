@@ -12,7 +12,19 @@ export default function ScoreBoardPage() {
             linkHref="/scoreboard/basic"
           />
           <ScoreBoardCard
+            title="基礎_2"
+            description="基礎的功能"
+            imageSrc=""
+            linkHref="/scoreboard/advanced"
+          />
+          <ScoreBoardCard
             title="進階"
+            description="進階的功能"
+            imageSrc=""
+            linkHref="/scoreboard/advanced"
+          />
+          <ScoreBoardCard
+            title="進階_2"
             description="進階的功能"
             imageSrc=""
             linkHref="/scoreboard/advanced"

@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
-import { AppHeader } from "@/components/app/header";
-import { AppFooter } from "@/components/app/footer";
 import { ThemeProvider } from "@/components/provider/theme-provider";
+import { AppShell } from "@/components/app/app-shell";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -29,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="zh-TW" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased mx-auto`}
+        className={`${geistSans.variable} ${geistMono.variable} mx-auto antialiased`}
       >
         <ThemeProvider
           attribute={"class"}
@@ -37,15 +36,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="flex flex-col">
-            <div className="flex min-h-svh flex-col">
-              <AppHeader />
-              <main className="flex w-full flex-col items-center">
-                {children}
-              </main>
-            </div>
-            <AppFooter />
-          </div>
+          <AppShell>{children}</AppShell>
         </ThemeProvider>
       </body>
     </html>
