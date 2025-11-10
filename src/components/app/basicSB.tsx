@@ -79,7 +79,7 @@ export function BasicScoreBoard({
 
         <div className="flex items-center justify-center px-2">
           <p className="w-6 text-center font-bold">{inning}</p>
-          <p className="font-bold">{topOfInning ? "上" : "下"}</p>
+          <p className="font-bold">{topOfInning ? "▲" : "▼"}</p>
         </div>
 
         <div className="flex items-center justify-center px-2">
