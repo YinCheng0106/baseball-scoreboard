@@ -76,7 +76,7 @@ export function ScoreboardForm({ onChange }: ScoreboardFormProps) {
   }, [watched, onChange]);
 
   return (
-    <div className="w-full max-w-md">
+    <div className="w-full">
       <form>
         <FieldGroup>
           <FieldSet>
