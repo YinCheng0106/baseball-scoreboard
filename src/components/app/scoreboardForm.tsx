@@ -27,6 +27,8 @@ import {
 import { Checkbox } from "@/components/ui/checkbox";
 
 export const ScoreboardSchema = z.object({
+  awayColor: z.string().min(1),
+  homeColor: z.string().min(1),
   homeScore: z.number().min(0),
   awayScore: z.number().min(0),
   inning: z.number().min(1),
@@ -51,6 +53,8 @@ export function ScoreboardForm({ onChange }: ScoreboardFormProps) {
   const form = useForm<z.infer<typeof ScoreboardSchema>>({
     resolver: zodResolver(ScoreboardSchema),
     defaultValues: {
+      awayColor: "#000000",
+      homeColor: "#000000",
       homeScore: 0,
       awayScore: 0,
       inning: 1,
@@ -78,6 +82,38 @@ export function ScoreboardForm({ onChange }: ScoreboardFormProps) {
           <FieldSet>
             <FieldLegend>基本設定</FieldLegend>
             <FieldDescription>請在這邊設定基本的比賽資訊</FieldDescription>
+            <FieldGroup>
+              <div className="flex flex-col gap-2">
+                <Field
+                  orientation="horizontal"
+                  className="items-center justify-between"
+                >
+                  <FieldLabel>客隊顏色</FieldLabel>
+                  <Input
+                    className="w-12"
+                    type="color"
+                    {...form.register("awayColor")}
+                  />
+                  <FieldError>
+                    {form.formState.errors.awayColor?.message}
+                  </FieldError>
+                </Field>
+                <Field
+                  orientation="horizontal"
+                  className="items-center justify-between"
+                >
+                  <FieldLabel>主隊顏色</FieldLabel>
+                  <Input
+                    className="w-12"
+                    type="color"
+                    {...form.register("homeColor")}
+                  />
+                  <FieldError>
+                    {form.formState.errors.homeColor?.message}
+                  </FieldError>
+                </Field>
+              </div>
+            </FieldGroup>
             <FieldGroup>
               <div className="grid grid-cols-2 gap-4">
                 <Field>

@@ -1,6 +1,8 @@
 import { Base } from "@/components/app/base";
 
 type Props = Readonly<{
+  homeColor: string;
+  awayColor: string;
   homeScore: number;
   awayScore: number;
   inning: number;
@@ -16,6 +18,8 @@ type Props = Readonly<{
 }>;
 
 export function BasicScoreBoard({
+  homeColor,
+  awayColor,
   homeScore,
   awayScore,
   inning,
@@ -35,9 +39,12 @@ export function BasicScoreBoard({
         <div className="items-center justify-center">
           {/* Score */}
 
-          <table className="h-20 min-w-30 max-w-35">
+          <table className="h-20 max-w-35 min-w-30">
             <tbody>
-              <tr className="items-center bg-zinc-400">
+              <tr
+                className="items-center"
+                style={{ backgroundColor: awayColor }}
+              >
                 <td className="pl-2 text-start text-xl font-bold sm:text-2xl">
                   {awayName}
                 </td>
@@ -47,7 +54,10 @@ export function BasicScoreBoard({
                 </td>
               </tr>
 
-              <tr className="items-center bg-blue-600">
+              <tr
+                className="items-center"
+                style={{ backgroundColor: homeColor }}
+              >
                 <td className="pl-2 text-start text-xl font-bold sm:text-2xl">
                   {homeName}
                 </td>

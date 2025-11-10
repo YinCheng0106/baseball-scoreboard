@@ -18,7 +18,7 @@ export function Base({ base1, base2, base3 }: BaseProps) {
 
         <polygon
           points="70,55 85,40 70,25 55,40"
-          fill={base1 ? "#FFD700" : "white"}
+          fill={base1 ? "#FFD700" : ""}
           strokeWidth="2"
           className={
             base1
@@ -31,7 +31,7 @@ export function Base({ base1, base2, base3 }: BaseProps) {
 
         <polygon
           points="50,35 65,20 50,5 35,20"
-          fill={base2 ? "#FFD700" : "white"}
+          fill={base2 ? "#FFD700" : ""}
           strokeWidth="2"
           className={
             base2
@@ -44,7 +44,7 @@ export function Base({ base1, base2, base3 }: BaseProps) {
 
         <polygon
           points="30,55 45,40 30,25 15,40"
-          fill={base3 ? "#FFD700" : "white"}
+          fill={base3 ? "#FFD700" : ""}
           strokeWidth="2"
           className={
             base3
