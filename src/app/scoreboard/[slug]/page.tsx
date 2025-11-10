@@ -21,7 +21,7 @@ export default function ScoreboardPage() {
     if (scoreboardRef.current === null) return;
     setIsGenerating(true);
 
-    toPng(scoreboardRef.current, { cacheBust: true, pixelRatio: 2 }) // pixelRatio: 2 讓圖片更清晰
+    toPng(scoreboardRef.current, { cacheBust: true, pixelRatio: 2 })
       .then((dataUrl) => {
         setImageUrl(dataUrl);
       })
