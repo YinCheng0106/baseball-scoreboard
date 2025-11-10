@@ -20,18 +20,20 @@ export default function ScoreboardPage() {
     outs: 0,
     homeName: "HOME",
     awayName: "AWAY",
-    base1: true,
+    base1: false,
     base2: false,
-    base3: true,
+    base3: false,
   });
 
   return (
-    <div className="w-full max-w-md space-y-6 px-4 py-8 md:py-12 lg:py-16">
-      <div className={`flex flex-col items-center justify-center`}>
-        <h2 className="text-2xl">預覽區</h2>
-        <div ref={scoreboardRef}>
-          <BasicScoreBoard {...scoreboardValues} />
-        </div>
+    <div
+      className={`flex w-full flex-col items-center space-y-6 px-4 py-8 md:py-12 lg:py-16`}
+    >
+      <div
+        className={`scale-[1.2] hover:scale-[1.5] transition-transform duration-300`}
+        ref={scoreboardRef}
+      >
+        <BasicScoreBoard {...scoreboardValues} />
       </div>
       <div className="w-full max-w-md">
         <ScoreboardForm onChange={setScoreboardValues} />

@@ -25,7 +25,6 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
-import { Button } from "../ui/button";
 
 export const ScoreboardSchema = z.object({
   homeScore: z.number().min(0),
@@ -67,10 +66,6 @@ export function ScoreboardForm({ onChange }: ScoreboardFormProps) {
     },
   });
 
-  function onSubmit(values: z.infer<typeof ScoreboardSchema>) {
-    console.log(values);
-  }
-
   const watched = useWatch({ control: form.control });
   useEffect(() => {
     onChange?.(watched as ScoreboardValues);
@@ -78,7 +73,7 @@ export function ScoreboardForm({ onChange }: ScoreboardFormProps) {
 
   return (
     <div className="w-full max-w-md">
-      <form onSubmit={form.handleSubmit(onSubmit)}>
+      <form>
         <FieldGroup>
           <FieldSet>
             <FieldLegend>基本設定</FieldLegend>
@@ -234,11 +229,6 @@ export function ScoreboardForm({ onChange }: ScoreboardFormProps) {
               </div>
             </FieldGroup>
           </FieldSet>
-          <Field>
-            <Button type="submit" className="cursor-pointer">
-              更新看板
-            </Button>
-          </Field>
         </FieldGroup>
       </form>
     </div>
