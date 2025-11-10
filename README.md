@@ -4,7 +4,7 @@
 ![Next.js](https://img.shields.io/badge/Nextjs-gray?logo=next.js&style=for-the-badge)
 ![GitHub License](https://img.shields.io/github/license/yincheng0106/baseball-scoreboard?style=for-the-badge)
 
-**English** | [繁體中文](./README.zh-TW.md)
+**English** | [繁體中文](./README.zh-tw.md)
 
 This is a customizable baseball scoreboard project.
 
