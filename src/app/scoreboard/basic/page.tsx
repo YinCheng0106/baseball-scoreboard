@@ -31,17 +31,12 @@ export default function ScoreboardPage() {
   const [isGenerating, setIsGenerating] = useState(false);
   const [copyStatus, setCopyStatus] = useState("一鍵複製到剪貼簿");
   const [copied, setCopied] = useState(false);
-  const [clipboardSupported] = useState(
-    () =>
-      typeof window !== "undefined" &&
-      !!navigator.clipboard &&
-      "ClipboardItem" in window,
-  );
 
-  const pixelRatio = useMemo(
-    () => Math.max(2, Math.floor(window.devicePixelRatio || 2)),
-    [],
-  );
+  const pixelRatio = useMemo(() => {
+    if (typeof window === "undefined") return 2;
+    return Math.max(2, Math.floor(window.devicePixelRatio || 2));
+  }, []);
+
   const commonCaptureOptions = useMemo(
     () => ({
       cacheBust: true,
@@ -80,6 +75,11 @@ export default function ScoreboardPage() {
       .then(async (blob) => {
         if (!blob) return;
         try {
+          const clipboardSupported =
+            typeof window !== "undefined" &&
+            typeof navigator !== "undefined" &&
+            !!navigator.clipboard &&
+            "ClipboardItem" in window;
           if (!clipboardSupported) {
             setCopyStatus("瀏覽器不支援");
             return;
@@ -111,7 +111,7 @@ export default function ScoreboardPage() {
           setCopyStatus("一鍵複製到剪貼簿");
         }, 1800);
       });
-  }, [scoreboardRef, commonCaptureOptions, clipboardSupported]);
+  }, [scoreboardRef, commonCaptureOptions]);
 
   const onDownload = useCallback(() => {
     if (scoreboardRef.current === null) return;
@@ -147,7 +147,6 @@ export default function ScoreboardPage() {
   return (
     <div className="w-full px-4 py-8 md:py-12 lg:py-16">
       <div className="mx-auto grid w-full max-w-6xl gap-6 md:grid-cols-2 lg:gap-8">
-
         <Card className="md:row-span-2">
           <CardContent>
             <div className="w-full items-center">
@@ -198,7 +197,7 @@ export default function ScoreboardPage() {
                 onClick={onCopyToClipboard}
                 className="w-full"
                 aria-label="複製圖片到剪貼簿"
-                disabled={isGenerating || !clipboardSupported}
+                disabled={isGenerating}
                 variant={copied ? "secondary" : "default"}
               >
                 {copied ? (
@@ -220,7 +219,7 @@ export default function ScoreboardPage() {
             </p>
           </CardContent>
         </Card>
-        
+
         <Card>
           <CardHeader>
             <CardTitle>輸出預覽</CardTitle>
